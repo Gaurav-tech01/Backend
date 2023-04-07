@@ -5,14 +5,15 @@ const nodemailer = require('nodemailer')
 const Otp = require('../modelSchema/otpVerification')
 const dotenv = require('dotenv')
 dotenv.config()
+const gmail = process.env.GMAIL
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
     port: 587,
     secure: false,
     auth: {
-        user: 'gauravsaraiwala20@gmail.com',
-        pass: 'fvctcfnytxdtxima'
+        user: gmail,
+        pass: process.env.PASS
     }
 });
 
@@ -132,7 +133,7 @@ const sendOTP = async ({_id, email}, res) => {
     try {
         const genotp = `${Math.floor(1000 + Math.random() * 9999)}`;
             mail.sendMail({
-                from: 'gauravsaraiwala20@gmail.com',
+                from: gmail,
                 to: email,
                 subject: "Verify Your Email",
                 html: `<p>Enter <b>${genotp}</b></p>`
