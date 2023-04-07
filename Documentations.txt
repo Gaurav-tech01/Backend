@@ -1,6 +1,6 @@
 //All the apis are tested on Postman
  
-// URL : https://localhost:8000/user/register
+// URL : https://backend-production-2ba4.up.railway.app/user/register
 
 //Sample Request 
 //{
@@ -14,7 +14,7 @@
 //    "message": "Verification Otp Sent"
 //}
  
-// URL : localhost:8000/user/resendOTP
+// URL : https://backend-production-2ba4.up.railway.app/user/resendOTP
  
 // Sample Request
 //{
@@ -28,7 +28,7 @@
 //}
 
 
-// URL: localhost:8000/user/verifyOTP
+// URL: https://backend-production-2ba4.up.railway.app/user/verifyOTP
  
 // Sample Request
 // {
@@ -55,7 +55,7 @@
 //    "message": "Invalid Code"
 //}
 
-// URL: localhost:8000/user/login
+// URL: https://backend-production-2ba4.up.railway.app/user/login
  
 // Sample Request
 //{
@@ -94,7 +94,7 @@ Sample Response
 
 
 // API to fill user details
-// URL: localhost:8000/userDetails/details
+// URL: https://backend-production-2ba4.up.railway.app/userDetails/details
 
 //gauravsaraiwala0109 emailId is verified
 // Sample Request
@@ -146,7 +146,7 @@ Sample Response
 
 //API to fill astrology details
 
-// URL: localhost:8000/userDetails/details
+// URL: https://backend-production-2ba4.up.railway.app/userDetails/details
 
 // Sample Request
 //{
