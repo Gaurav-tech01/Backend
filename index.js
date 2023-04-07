@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const userRoute = require('./api/login')
-const DB_URI = 'mongodb+srv://gauravsaraiwala:sJZ7f0PPZkefNsdP@cluster0.5cqk2hp.mongodb.net/counseling?retryWrites=true&w=majority';
+// const DB_URI = 'mongodb+srv://gauravsaraiwala:sJZ7f0PPZkefNsdP@cluster0.5cqk2hp.mongodb.net/counseling?retryWrites=true&w=majority';
+const DB_URI = 'mongodb://mongo:bKjmyr5ZKkuXe1db9yzL@containers-us-west-207.railway.app:7274'
 const user = require('./api/user')
 const astro = require('./api/astro')
 
