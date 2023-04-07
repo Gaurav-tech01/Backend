@@ -1,0 +1,166 @@
+//All the apis are tested on Postman
+ 
+// URL : https://localhost:8000/user/register
+
+//Sample Request 
+//{
+//    "email": "gauravsaraiwala0109@gmail.com",
+//    "password": "12345678"
+//}
+ 
+// Sample Response
+// {
+//    "status": "Pending",
+//    "message": "Verification Otp Sent"
+//}
+ 
+// URL : localhost:8000/user/resendOTP
+ 
+// Sample Request
+//{
+//    "email": "gauravsaraiwala0109@gmail.com"
+//}
+ 
+// Sample Response
+// {
+//    "status": "Pending",
+//    "message": "Verification Otp Sent"
+//}
+
+
+// URL: localhost:8000/user/verifyOTP
+ 
+// Sample Request
+// {
+//    "email": "gauravsaraiwala0109@gmail.com",
+//    "otp": "6916"
+//}
+ 
+// Sample Response
+// {
+//    "status": "Verified",
+//    "message": "User email Verified"
+//}
+
+//if given wrong otp
+// Sample Request
+// {
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "otp": "4562"
+//}
+ 
+// Sample Response
+// {
+//    "status": "Failed",
+//    "message": "Invalid Code"
+//}
+
+// URL: localhost:8000/user/login
+ 
+// Sample Request
+//{
+//    "email": "gauravsaraiwala0109@gmail.com",
+//    "password": "12345678"
+//}
+ 
+// Sample Response
+// Login Successful
+
+// if given wrong password or email in credentials and user is verified
+
+Sample Request
+//{
+//    "email": "gauravsaraiwala0109@gmail.com",
+//    "password": "123456"
+//}
+
+Sample Request
+//{
+//    "error": "Wrong Credentials"
+//}
+
+// if user is not verified or present in database
+
+Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "password": "123456"
+//}
+
+Sample Response
+//{
+//    "message": "User Missing or Not Verified"
+//}
+
+
+// API to fill user details
+// URL: localhost:8000/userDetails/details
+
+//gauravsaraiwala0109 emailId is verified
+// Sample Request
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "VV Puram",
+//        "state": "Karnataka",
+//       "country": "India"
+//    },
+//    "email": "gauravsaraiwala0109@gmail.com",
+//    "education": "Graduate"
+//}
+
+Sample Response
+//{
+//    "newUser": {
+//        "name": "Gaurav",
+//        "dob": "01/09/01",
+//        "address": {
+//           "line1": "VV Puram",
+//            "state": "Karnataka",
+//            "country": "India"
+//        },
+//        "email": "gauravsaraiwala0109@gmail.com",
+//        "_id": "642fbfcd05a1a8ea9dc44a42"
+//    }
+//}
+
+//gauravsaraiwala20 email id is not verified till now
+// Sample Request
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "VV Puram",
+//        "state": "Karnataka",
+//       "country": "India"
+//    },
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "education": "Graduate"
+//}
+ 
+// Sample Response
+// {
+//    "message": "Not Verified or User not registered"
+//}
+
+//API to fill astrology details
+
+// URL: localhost:8000/userDetails/details
+
+// Sample Request
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00"
+//}
+
+Sample Response
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00",
+//    "_id": "642fc0aa5c3b4b25b3a939a9"
+//}
