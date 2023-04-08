@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const User = require('../modelSchema/userLogin'); 
+const Login = require('../modelSchema/userLogin'); 
+const User = require('../modelSchema/userDetails')
 const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
 const Otp = require('../modelSchema/otpVerification')
@@ -20,20 +21,20 @@ const mail = nodemailer.createTransport({
 router.post("/register", async (req, res) => {
     let {email} = req.body;
     const query = {email: req.body.email}
-    const check = await User.findOne(query);
+    const check = await Login.findOne(query);
     console.log(check)
     if(!check || !(check.verified))
     {
-        await User.deleteMany({email})
+        await Login.deleteMany({email})
         try{
             const salt = await bcrypt.genSalt(10)
             const secPass = await bcrypt.hash(req.body.password, salt)
-            const newUser = new User({
+            const newLogin = new Login({
                 email: req.body.email,
                 password: secPass,
                 verified: false
             });
-                newUser.save().then((result) => {
+                newLogin.save().then((result) => {
                     sendOTP(result, res)
                 });
         } catch(err) {
@@ -66,11 +67,11 @@ router.post("/verifyOTP", async (req, res) => {
                     throw new Error('Code has expired. Please request again.');
                 } else {
                     if(otp == otpRecord[0].otp) {
-                        await User.updateOne({email: email}, {verified: true});
+                        await Login.updateOne({email: email}, {verified: true});
                         await Otp.deleteMany({email});
                         res.json({
                             status: "Verified",
-                            message: "User email Verified"
+                            message: "Login email Verified"
                         })
                     } else {
                         throw new Error("Invalid Code")
@@ -107,14 +108,14 @@ router.post("/resendOTP", async (req, res) => {
 router.post("/login", async (req,res) => {
     const query = {email: req.body.email}
     const pass = req.body.password
-    const check = await User.findOne(query);
+    const check = await Login.findOne(query);
     let {email} = req.body;
     if(!check || !(check.verified)){
-        
-        await User.deleteMany({email})
+        await Login.deleteMany({email})
         res.json({
-            message: 'User Missing or Not Verified'})
-        }
+            message: 'Login Missing or Not Verified'})
+    }
+
     else {
         try {
             const passCompare = await bcrypt.compare(pass, check.password);

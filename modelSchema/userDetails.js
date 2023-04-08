@@ -23,6 +23,12 @@ const userSchema = new mongoose.Schema({
     },
     education: {
         type: String
+    },
+    phone: {
+        type: String
+    },
+    profile_status: {
+        type: String
     }
 },{timestamps: true})
 
