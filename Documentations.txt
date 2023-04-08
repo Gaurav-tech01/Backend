@@ -121,6 +121,7 @@ Sample Response
 //            "country": "India"
 //        },
 //        "email": "gauravsaraiwala0109@gmail.com",
+          "profile_status": "Complete",
 //        "_id": "642fbfcd05a1a8ea9dc44a42"
 //    }
 //}
@@ -146,7 +147,7 @@ Sample Response
 
 //API to fill astrology details
 
-// URL: https://backend-production-2ba4.up.railway.app/userDetails/details
+// URL: https://backend-production-2ba4.up.railway.app/astro/details
 
 // Sample Request
 //{
@@ -164,3 +165,4 @@ Sample Response
 //    "tob": "11:00",
 //    "_id": "642fc0aa5c3b4b25b3a939a9"
 //}
+
