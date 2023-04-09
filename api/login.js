@@ -22,7 +22,6 @@ router.post("/register", async (req, res) => {
     let {email} = req.body;
     const query = {email: req.body.email}
     const check = await Login.findOne(query);
-    console.log(check)
     if(!check || !(check.verified))
     {
         await Login.deleteMany({email})
@@ -122,7 +121,7 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                res.json({message: "Login Successful and fill user details"})
+                res.json({message: "Login Successful", profile_status: false})
             }
         } catch(err) {
             console.log(err);
@@ -134,7 +133,7 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                res.json({message: "Login Successful and User details already filled"})
+                res.json({message: "Login Successful", profile_status: true})
             }
         } catch(err) {
             console.log(err);

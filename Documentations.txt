@@ -64,9 +64,10 @@
 //    "password": "12345678"
 //}
  
-// Sample Response
+//Sample Response
 // {
-//    "message": "Login Successful and User details already filled"
+//    "message": "Login Successful",
+//    "profile_status": true
 //}
 
 // if user details are not filled and login credentials are correct
@@ -78,7 +79,8 @@
  
 // Sample Response
 // {
-//    "message": "Login Successful and fill user details"
+//    "message": "Login Successful",
+//    "profile_status": false
 //}
 
 // if given wrong password or email in credentials and user is verified
@@ -212,7 +214,7 @@ URL: https://backend-production-2ba4.up.railway.app/userDetails/verifyPhoneOTP
 //    "message": "Invalid Code"
 //}
 
-URL: localhost:8000/userDetails/fetchUserDetails 
+URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails 
 //It is a GET request
 
 //Sample Request

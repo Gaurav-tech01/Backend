@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Astro = require('../modelSchema/astroDetails');
 
+
 //To Insert values inside mongodb database for Astrology Section
 router.post("/details", (req, res) => {
         try{

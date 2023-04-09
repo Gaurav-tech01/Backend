@@ -114,7 +114,7 @@ router.post("/resendOTP", async (req, res) => {
 
 router.get("/fetchUserDetails", async (req, res) => {
     const query = {email: req.body.email}
-    const check = await User.findOne(query);
+    const check = await User.findOne(query).populate('astro');
     res.send(check)
 })
 
