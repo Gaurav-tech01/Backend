@@ -18,12 +18,12 @@ router.post("/details", async (req, res) => {
                 address: req.body.address,
                 email: req.body.email,
                 education: req.body.education,
-                phone: req.body.phone,
-                profile_status: "Complete"
+                phone: req.body.phone
             });
             newUser.save().then((result) => {
                 sendSMS(result, res)
             });
+            await Login.updateOne(query, {profile_status: true});
             res.json(newUser)
         } catch(err) {
             console.log(err);
@@ -110,6 +110,12 @@ router.post("/resendOTP", async (req, res) => {
             message: error.message
         })
     }
+})
+
+router.get("/fetchUserDetails", async (req, res) => {
+    const query = {email: req.body.email}
+    const check = await User.findOne(query);
+    res.send(check)
 })
 
 module.exports = router;

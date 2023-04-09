@@ -26,9 +26,6 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String
-    },
-    profile_status: {
-        type: String
     }
 },{timestamps: true})
 

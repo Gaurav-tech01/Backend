@@ -32,7 +32,8 @@ router.post("/register", async (req, res) => {
             const newLogin = new Login({
                 email: req.body.email,
                 password: secPass,
-                verified: false
+                verified: false,
+                profile_status: false
             });
                 newLogin.save().then((result) => {
                     sendOTP(result, res)
@@ -115,14 +116,25 @@ router.post("/login", async (req,res) => {
         res.json({
             message: 'Login Missing or Not Verified'})
     }
-
+    else if(!(check.profile_status)){
+        try {
+            const passCompare = await bcrypt.compare(pass, check.password);
+            if(!passCompare){
+                res.status(400).json({error: "Wrong Credentials"})
+            } else {
+                res.json({message: "Login Successful and fill user details"})
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
     else {
         try {
             const passCompare = await bcrypt.compare(pass, check.password);
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                res.send("Login Successful")
+                res.json({message: "Login Successful and User details already filled"})
             }
         } catch(err) {
             console.log(err);

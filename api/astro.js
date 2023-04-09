@@ -18,4 +18,10 @@ router.post("/details", (req, res) => {
     }
 );
 
+router.get("/fetchAstroDetails", async (req, res) => {
+    const query = {name: req.body.name}
+    const check = await Astro.findOne(query);
+    res.send(check)
+})
+
 module.exports = router;

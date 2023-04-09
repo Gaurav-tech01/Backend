@@ -9,6 +9,9 @@ const loginSchema = new mongoose.Schema({
     },
     verified: {
         type: Boolean
+    },
+    profile_status: {
+        type: Boolean
     }
 },{timestamps: true})
 
