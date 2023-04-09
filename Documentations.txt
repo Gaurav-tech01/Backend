@@ -238,7 +238,7 @@ URL: localhost:8000/userDetails/fetchUserDetails
 //    "__v": 0
 //}
 
-URL: localhost:8000/astro/fetchAstroDetails
+URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails
 //It is a GET request
 
 //Sample Request
