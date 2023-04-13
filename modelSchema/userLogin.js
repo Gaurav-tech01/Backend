@@ -10,8 +10,13 @@ const loginSchema = new mongoose.Schema({
     verified: {
         type: Boolean
     },
-    profile_status: {
-        type: Boolean
+    profile: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    astro: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Astro'
     }
 },{timestamps: true})
 

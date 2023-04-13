@@ -16,14 +16,14 @@ router.post("/details", async (req, res) => {
                 name: req.body.name,
                 dob: req.body.dob,
                 address: req.body.address,
-                email: req.body.email,
                 education: req.body.education,
                 phone: req.body.phone
             });
-            newUser.save().then((result) => {
+            await newUser.save().then((result) => {
                 sendSMS(result, res)
             });
-            await Login.updateOne(query, {profile_status: true});
+            console.log(newUser._id)
+            await Login.updateOne(query, {$set: {profile: newUser._id}});
             res.json(newUser)
         } catch(err) {
             console.log(err);
@@ -114,7 +114,8 @@ router.post("/resendOTP", async (req, res) => {
 
 router.get("/fetchUserDetails", async (req, res) => {
     const query = {email: req.body.email}
-    const check = await User.findOne(query).populate('astro');
+    const id = await Login.findOne(query)
+    const check = await User.findOne(id.profile)
     res.send(check)
 })
 

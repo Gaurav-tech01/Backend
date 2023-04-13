@@ -31,8 +31,7 @@ router.post("/register", async (req, res) => {
             const newLogin = new Login({
                 email: req.body.email,
                 password: secPass,
-                verified: false,
-                profile_status: false
+                verified: false
             });
                 newLogin.save().then((result) => {
                     sendOTP(result, res)
@@ -50,6 +49,7 @@ router.post("/register", async (req, res) => {
 router.post("/verifyOTP", async (req, res) => {
     try {
         let {email, otp} = req.body;
+        const verify = await Login.findOne({email})
         if(!email || !otp) {
             throw Error("Empty otp details");
         } else {
@@ -67,12 +67,19 @@ router.post("/verifyOTP", async (req, res) => {
                     throw new Error('Code has expired. Please request again.');
                 } else {
                     if(otp == otpRecord[0].otp) {
+                        if(verify.verified)
+                        {
+                            res.json({
+                                status: "Verified",
+                                message: "redirect to update password page"})
+                        }
+                        else {
                         await Login.updateOne({email: email}, {verified: true});
                         await Otp.deleteMany({email});
                         res.json({
                             status: "Verified",
                             message: "Login email Verified"
-                        })
+                        })}
                     } else {
                         throw new Error("Invalid Code")
                     }
@@ -87,10 +94,14 @@ router.post("/verifyOTP", async (req, res) => {
     }
 })
 
+router.post("/updatepassword", async (req, res) => {
+    let {password} = req.body;
+    await Login.updateOne({password})
+})
+
 router.post("/resendOTP", async (req, res) => {
     try {
         let {email} = req.body;
-
         if(!email) {
             throw Error("Empty user details are not allowed")
         } else {
@@ -115,7 +126,7 @@ router.post("/login", async (req,res) => {
         res.json({
             message: 'Login Missing or Not Verified'})
     }
-    else if(!(check.profile_status)){
+    else if(!(check.profile)){
         try {
             const passCompare = await bcrypt.compare(pass, check.password);
             if(!passCompare){
@@ -141,9 +152,27 @@ router.post("/login", async (req,res) => {
     }
 })
 
+router.post("/forgetpassword", async (req,res) => {
+    const query = {email: req.body.email}
+    const check = await Login.findOne(query);
+    let {email} = req.body;
+    if(!check) {
+        res.json({
+            message: 'User not registered'})
+    }
+    else {
+        try {
+            sendOTP();
+        } catch(err) {
+            console.log(err);
+        }
+    }
+})
+
 const sendOTP = async ({_id, email}, res) => {
     try {
-        const genotp = `${Math.floor(1000 + Math.random() * 9999)}`;
+        const genotp = `${1000+(Math.floor(Math.random()*10)*999)}`;
+        console.log(genotp)
             mail.sendMail({
                 from: gmail,
                 to: email,
