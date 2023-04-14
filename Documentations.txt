@@ -273,3 +273,42 @@ URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails
 //    "updatedAt": "2023-04-08T20:12:50.079Z",
 //    "__v": 0
 //}
+
+//forgetpassword - 
+//URL: https://backend-production-2ba4.up.railway.app/user/forgetpassword
+if user already registerd
+//Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//}
+
+// Sample Response
+// {
+//    "status": "Pending",
+//    "message": "Verification Otp Sent"
+//}
+
+//if user not register
+//Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//}
+
+// Sample Response
+// {
+//    "message": "User Not Register"
+//}
+
+
+//URL: https://backend-production-2ba4.up.railway.app/user/verifyOTP
+//Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//    "otp": "9991"
+//}
+
+// Sample Response
+// {
+//    "status": "Verified",
+//    "message": "redirect to update password page"
+//}

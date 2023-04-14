@@ -155,14 +155,13 @@ router.post("/login", async (req,res) => {
 router.post("/forgetpassword", async (req,res) => {
     const query = {email: req.body.email}
     const check = await Login.findOne(query);
-    let {email} = req.body;
     if(!check) {
         res.json({
             message: 'User not registered'})
     }
     else {
         try {
-            sendOTP();
+            sendOTP(check, res);
         } catch(err) {
             console.log(err);
         }
