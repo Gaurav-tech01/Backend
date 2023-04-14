@@ -137,7 +137,6 @@ Sample Response
 //        "state": "Karnataka",
 //        "country": "India"
 //    },
-//    "email": "gauravsaraiwala20@gmail.com",
 //    "education": "Graduate",
 //    "phone": "9798718420",
 //    "_id": "6431ca5d64d4d441ab523dad",
@@ -172,6 +171,7 @@ Sample Response
 
 // Sample Request
 //{
+//    "email": "gauravsaraiwala20@gmail.com"
 //    "name": "Gaurav",
 //    "dob": "01/09/01",
 //    "pob": "Jharkhand",
@@ -185,6 +185,21 @@ Sample Response
 //    "pob": "Jharkhand",
 //    "tob": "11:00",
 //    "_id": "642fc0aa5c3b4b25b3a939a9"
+//}
+
+If details already filled
+// Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00"
+//}
+
+//Sample Response
+//{
+//    "Astro Details already filled"
 //}
 
 URL: https://backend-production-2ba4.up.railway.app/userDetails/verifyPhoneOTP
@@ -232,7 +247,6 @@ URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails
 //    "_id": "6431c9c364d4d441ab523da6",
 //    "name": "Gaurav",
 //    "dob": "01/09/01",
-//    "email": "gauravsaraiwala20@gmail.com",
 //    "education": "Graduate",
 //    "phone": "9798718420",
 //    "createdAt": "2023-04-08T20:08:35.962Z",
@@ -245,7 +259,7 @@ URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails
 
 //Sample Request
 //{
-//    "name": "Gaurav"
+//    "email": "gauravsaraiwala20@gmail.com"
 //}
 
 //Sample Response

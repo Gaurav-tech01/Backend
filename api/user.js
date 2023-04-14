@@ -9,8 +9,13 @@ dotenv.config();
 router.post("/details", async (req, res) => {
     const query = {email: req.body.email}
     const check = await Login.findOne(query);
-    if(!check || check.verified)
+    if(!check || !check.verified)
     {
+        await Login.deleteMany(query);
+        res.json({
+            message: 'Not Verified or User not registered'})
+    }
+    else {
         try{
             const newUser = new User({
                 name: req.body.name,
@@ -29,11 +34,7 @@ router.post("/details", async (req, res) => {
             console.log(err);
         }
     }
-    else{
-        await Login.deleteMany(query);
-        res.json({
-            message: 'Not Verified or User not registered'})
-        }
+        
 });
 
 async function sendSMS({phone}, res){
