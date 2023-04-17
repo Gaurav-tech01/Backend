@@ -1,12 +1,33 @@
 const router = require("express").Router();
+const jwt = require("jsonwebtoken")
 const Login = require('../modelSchema/userLogin');
 const User = require('../modelSchema/userDetails');
 const Otp = require('../modelSchema/otpVerification')
 const dotenv = require('dotenv');
 const twilio = require('twilio');
+const path = require('path')
+
 dotenv.config();
 
-router.post("/details", async (req, res) => {
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: './uploads',
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+  })
+const upload = multer({storage: storage,
+fileFilter: (req,file,cb)=>{
+    if(file.mimetype=='image/jpeg' || file.mimetype=='image/jpg' || file.mimetype=='image/png'){
+        cb(null,true)
+    }
+    else{
+        cb(null, false);
+        return cb(new Error('Only jpeg, jpg, png is allowed'))
+    }
+}})
+
+router.post("/details", upload.single('image'), async (req, res) => {
     const query = {email: req.body.email}
     const check = await Login.findOne(query);
     if(!check || !check.verified)
@@ -24,6 +45,10 @@ router.post("/details", async (req, res) => {
                 education: req.body.education,
                 phone: req.body.phone
             });
+            if((req.file)){
+                newUser.image = req.file.filename
+            }
+            //console.log((address))
             await newUser.save().then((result) => {
                 sendSMS(result, res)
             });
@@ -34,7 +59,6 @@ router.post("/details", async (req, res) => {
             console.log(err);
         }
     }
-        
 });
 
 async function sendSMS({phone}, res){
@@ -114,10 +138,24 @@ router.post("/resendOTP", async (req, res) => {
 })
 
 router.get("/fetchUserDetails", async (req, res) => {
-    const query = {email: req.body.email}
-    const id = await Login.findOne(query)
-    const check = await User.findOne(id.profile)
-    res.send(check)
+    try{
+        let token = req.body.authorization;
+        if(token){
+            let user = jwt.verify(token, process.env.SECRET_KEY)
+            req.userId = user.id
+        }
+        else {
+            res.status(401).json({message: "Unauthorized User"})
+        }
+
+        const id = await Login.findOne(req.userId)
+        const check = await User.findOne(id.profile)
+        res.send(check)
+        
+    }catch(err){
+        console.log(err)
+        res.status(401).json({message: "Unauthorized User"})
+    }
 })
 
 module.exports = router;

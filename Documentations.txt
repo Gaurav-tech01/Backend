@@ -234,7 +234,7 @@ URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails
 
 //Sample Request
 //{
-//    "email": "gauravsaraiwala20@gmail.com"
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzYWU0ZGNhNzdmYmNiOGNhYjk1ODliIiwiaWF0IjoxNjgxNTgxMzI5fQ.5T7NCiLy_e3jsiwdGl_4iOCubHYoeKOmL04MoT9N3Ww"
 //}
  
 // Sample Response
@@ -259,18 +259,19 @@ URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails
 
 //Sample Request
 //{
-//    "email": "gauravsaraiwala20@gmail.com"
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzYWU0ZGNhNzdmYmNiOGNhYjk1ODliIiwiaWF0IjoxNjgxNTgxMzI5fQ.5T7NCiLy_e3jsiwdGl_4iOCubHYoeKOmL04MoT9N3Ww"
 //}
 
 //Sample Response
 //{
-//    "_id": "6431cac264d4d441ab523db4",
+//    "_id": "643ae732c05750795ab1a24d",
 //    "name": "Gaurav",
 //    "dob": "01/09/01",
-//    "pob": "Karnataka",
+//    "pob": "Karnatak",
 //    "tob": "11:05",
-//    "createdAt": "2023-04-08T20:12:50.079Z",
-//    "updatedAt": "2023-04-08T20:12:50.079Z",
+//    "userId": "643ae4dca77fbcb8cab9589b",
+//    "createdAt": "2023-04-15T18:04:34.291Z",
+//    "updatedAt": "2023-04-15T18:04:34.291Z",
 //    "__v": 0
 //}
 

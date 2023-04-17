@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Login = require('../modelSchema/userLogin'); 
-const User = require('../modelSchema/userDetails')
+const Login = require('../modelSchema/userLogin');
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
 const Otp = require('../modelSchema/otpVerification')
@@ -132,6 +132,8 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
+                const token = jwt.sign({email: check.email, id: check._id}, process.env.SECRET_KEY)
+                await Login.updateOne(query, {tokens: token});
                 res.json({message: "Login Successful", profile_status: false})
             }
         } catch(err) {
