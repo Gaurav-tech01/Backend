@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const userRoute = require('./api/login')
-
+const psy = require('./api/psy')
 const user = require('./api/user')
 const astro = require('./api/astro')
 const dotenv = require('dotenv')
-const DB_URI = process.env.DB_URI
-//const DB_URI = process.env.OWN_URI;
+//const DB_URI = process.env.DB_URI
+const DB_URI = process.env.OWN_URI;
 
 app.use(express.json())
 
@@ -30,6 +30,9 @@ app.use("/userDetails", user)
 
 //api use for filling astro Details
 app.use("/astro", astro)
+
+//api use for filling psychology
+app.use("/psy",psy)
 
 console.log(process.env.PORT)
 app.listen(process.env.PORT, ()=> {

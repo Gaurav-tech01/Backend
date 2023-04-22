@@ -31,7 +31,8 @@ router.post("/register", async (req, res) => {
             const newLogin = new Login({
                 email: req.body.email,
                 password: secPass,
-                verified: false
+                verified: false,
+                pack_status: false
             });
                 newLogin.save().then((result) => {
                     sendOTP(result, res)

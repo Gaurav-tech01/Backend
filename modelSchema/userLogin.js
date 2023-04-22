@@ -16,6 +16,9 @@ const loginSchema = new mongoose.Schema({
     profile: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    pack_status: {
+        type: Boolean
     }
 },{timestamps: true})
 

@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Astro = require('../modelSchema/astroDetails');
-const Login = require('../modelSchema/userLogin');
+const Login = require('../modelSchema/userLogin')
+const psy = require('../modelSchema/psyDetails');
 const jwt = require('jsonwebtoken')
 
 //To Insert values inside mongodb database for Astrology Section
@@ -20,13 +20,12 @@ router.post("/details", async (req, res) => {
     }
         try{
             const check = await Login.findById(req.userId)
-          if(!check.pack_status)
+            if(!check.pack_status)
             {
-            const newUser = new Astro({
+                const newUser = new psy({
                 name: req.body.name,
-                dob: req.body.dob,
-                pob: req.body.pob,
-                tob: req.body.tob,
+                age: req.body.age,
+                hobbies: req.body.hobbies,
                 userId: req.userId
             });
             await Login.updateOne({pack_status: true})
@@ -41,7 +40,7 @@ router.post("/details", async (req, res) => {
         }
 });
 
-router.get("/fetchAstroDetails", async (req, res) => {
+router.get("/fetchpsyDetails", async (req, res) => {
     try{
         let token = req.body.authorization;
         if(token){
@@ -52,7 +51,7 @@ router.get("/fetchAstroDetails", async (req, res) => {
             res.status(401).json({message: "Unauthorized User"})
         }
 
-        const check = await Astro.findOne({userId: req.userId})
+        const check = await psy.findOne({userId: req.userId})
         res.send(check)
         
     }catch(err){
