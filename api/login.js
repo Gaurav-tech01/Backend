@@ -135,7 +135,7 @@ router.post("/login", async (req,res) => {
             } else {
                 const token = jwt.sign({email: check.email, id: check._id}, process.env.SECRET_KEY)
                 await Login.updateOne(query, {tokens: token});
-                res.json({message: "Login Successful", profile_status: false})
+                res.json({message: "Login Successful", profile_status: false, tokens: token})
             }
         } catch(err) {
             console.log(err);
