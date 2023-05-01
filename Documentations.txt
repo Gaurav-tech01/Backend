@@ -67,7 +67,8 @@
 //Sample Response
 // {
 //    "message": "Login Successful",
-//    "profile_status": true
+//    "profile_status": true,
+//    "tokens": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzOTQyYjNmNGIyN2E3ZDNiZDY4YWRmIiwiaWF0IjoxNjgxNDc1MjQ1fQ.Y2W5z6zvl-m61DVCNIBKi5agGS34kVi1lLC4W2X-7Js"
 //}
 
 // if user details are not filled and login credentials are correct
@@ -80,7 +81,8 @@
 // Sample Response
 // {
 //    "message": "Login Successful",
-//    "profile_status": false
+//    "profile_status": false,
+//    "tokens": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzOTQyYjNmNGIyN2E3ZDNiZDY4YWRmIiwiaWF0IjoxNjgxNDc1MjQ1fQ.Y2W5z6zvl-m61DVCNIBKi5agGS34kVi1lLC4W2X-7Js",
 //}
 
 // if given wrong password or email in credentials and user is verified

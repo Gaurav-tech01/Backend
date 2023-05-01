@@ -10,16 +10,16 @@ const educonSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    "12th marks": {
+    marks_12: {
         type: String
     },
-    "12th marksheet":{
+    marksheet_12:{
         type: String
     },
-    "10th marks": {
+    marks_10: {
         type: String
     },
-    "10th marksheet":{
+    marksheet_10:{
         type: String
     },
     userId: {
