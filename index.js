@@ -7,8 +7,8 @@ const user = require('./api/user')
 const astro = require('./api/astro')
 const admin = require('./api/admin')
 const dotenv = require('dotenv')
-//const DB_URI = process.env.DB_URI
-const DB_URI = process.env.OWN_URI;
+const DB_URI = process.env.DB_URI
+//const DB_URI = process.env.OWN_URI;
 
 app.use(express.json())
 
