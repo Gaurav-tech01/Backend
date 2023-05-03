@@ -53,7 +53,7 @@ router.post("/details", upload.single('image'), async (req, res) => {
                 sendSMS(result, res)
             });
             console.log(newUser._id)
-            await Login.updateOne(query, {$set: {profile: newUser._id}});
+            await Login.updateOne(query, {$set: {profile: newUser._id, profile_status:true}});
             res.json(newUser)
         } catch(err) {
             console.log(err);
