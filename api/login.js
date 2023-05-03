@@ -7,6 +7,7 @@ const Otp = require('../modelSchema/otpVerification')
 const dotenv = require('dotenv')
 dotenv.config()
 const gmail = process.env.GMAIL
+const SECRET_KEY = "LoginDone"
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
@@ -134,7 +135,7 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                const token = jwt.sign({email: check.email, id: check._id}, process.env.SECRET_KEY)
+                const token = jwt.sign({email: check.email, id: check._id}, SECRET_KEY)
                 await Login.updateOne(query, {tokens: token});
                 res.json({message: "Login Successful", profile_status: false, tokens: token})
             }
