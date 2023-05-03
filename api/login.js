@@ -124,6 +124,7 @@ router.post("/login", async (req,res) => {
     const pass = req.body.password
     const check = await Login.findOne(query);
     let {email} = req.body;
+    const token = jwt.sign({email: check.email, id: check._id}, SECRET_KEY)
     if(!check || !(check.verified)){
         await Login.deleteMany({email})
         res.json({
@@ -135,7 +136,6 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                const token = jwt.sign({email: check.email, id: check._id}, SECRET_KEY)
                 await Login.updateOne(query, {tokens: token});
                 res.json({message: "Login Successful", profile_status: false, tokens: token})
             }
@@ -149,7 +149,7 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
-                res.json({message: "Login Successful", profile_status: true})
+                res.json({message: "Login Successful", profile_status: true, tokens: token})
             }
         } catch(err) {
             console.log(err);
