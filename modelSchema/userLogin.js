@@ -13,6 +13,9 @@ const loginSchema = new mongoose.Schema({
     tokens:{
         type: String
     },
+    profile_status:{
+        type: Boolean
+    },
     profile: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

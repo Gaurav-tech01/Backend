@@ -32,6 +32,7 @@ router.post("/register", async (req, res) => {
                 email: req.body.email,
                 password: secPass,
                 verified: false,
+                profile_status: false,
                 pack_status: false
             });
                 newLogin.save().then((result) => {
@@ -127,7 +128,7 @@ router.post("/login", async (req,res) => {
         res.json({
             message: 'Login Missing or Not Verified'})
     }
-    else if(!(check.profile)){
+    else if(!(check.profile_status)){
         try {
             const passCompare = await bcrypt.compare(pass, check.password);
             if(!passCompare){
