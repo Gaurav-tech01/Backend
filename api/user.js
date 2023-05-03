@@ -6,6 +6,7 @@ const Otp = require('../modelSchema/otpVerification')
 const dotenv = require('dotenv');
 const twilio = require('twilio');
 const path = require('path')
+const SECRET_KEY = "LoginDone"
 
 dotenv.config();
 
@@ -43,16 +44,13 @@ router.post("/details", upload.single('image'), async (req, res) => {
                 dob: req.body.dob,
                 address: req.body.address,
                 education: req.body.education,
-                phone: req.body.phone
+                phone: req.body.phone,
+                userId: check._id
             });
             if((req.file)){
                 newUser.image = req.file.filename
             }
-            //console.log((address))
-            await newUser.save().then((result) => {
-                sendSMS(result, res)
-            });
-            console.log(newUser._id)
+            await newUser.save();
             await Login.updateOne(query, {$set: {profile: newUser._id, profile_status:true}});
             res.json(newUser)
         } catch(err) {
@@ -141,15 +139,16 @@ router.get("/fetchUserDetails", async (req, res) => {
     try{
         let token = req.body.authorization;
         if(token){
-            let user = jwt.verify(token, process.env.SECRET_KEY)
+            let user = jwt.verify(token, SECRET_KEY)
             req.userId = user.id
         }
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
 
-        const id = await Login.findOne(req.userId)
-        const check = await User.findOne(id.profile)
+        // const id = await Login.findOne(req.userId)
+        // console.log(id)
+        const check = await User.findOne({userId: req.userId})
         res.send(check)
         
     }catch(err){

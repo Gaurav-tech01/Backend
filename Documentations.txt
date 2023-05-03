@@ -141,6 +141,7 @@ Sample Response
 //    },
 //    "education": "Graduate",
 //    "phone": "9798718420",
+//    "image": "image-1683142168509.png",
 //    "_id": "6431ca5d64d4d441ab523dad",
 //    "createdAt": "2023-04-08T20:11:09.337Z",
 //    "updatedAt": "2023-04-08T20:11:09.337Z",
