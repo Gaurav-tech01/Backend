@@ -39,7 +39,9 @@
 // Sample Response
 // {
 //    "status": "Verified",
-//    "message": "Login email Verified"
+//    "message": "Login email Verified",
+//    "profile_status": false,
+//    "tokens": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjEyNzYxfQ.t2XtF_a8CNoBFhi7Z22sYsQmFTQ99KRF5yTJ9sra5pI"
 //}
 
 //if given wrong otp
@@ -372,12 +374,26 @@ URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 
 URL: https://backend-production-2ba4.up.railway.app/user/updatepassword
 
+//if email already registered
 //Sample Request
 //{
+//      email:"gauravsaraiwala20@gmail.com"
 //      password:"456789"
 //}
 
 //Sample Response
 //{
 //    message: "password updated"
+//}
+
+//if email not registered
+//Sample Request
+//{
+//      email:"gauravsaraiwala20@gmail.com"
+//      password:"456789"
+//}
+
+//Sample Response
+//{
+//    message: "User not registered"
 //}

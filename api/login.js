@@ -77,11 +77,14 @@ router.post("/verifyOTP", async (req, res) => {
                                 message: "redirect to update password page"})
                         }
                         else {
-                        await Login.updateOne({email: email}, {verified: true});
+                        const token = jwt.sign({email: verify.email, id: verify._id}, SECRET_KEY)
+                        await Login.updateOne({email: email}, {verified: true}, {tokens: token});
                         await Otp.deleteMany({email});
                         res.json({
                             status: "Verified",
-                            message: "Login email Verified"
+                            message: "Login email Verified",
+                            profile_status: verify.profile_status,
+                            tokens: token
                         })}
                     } else {
                         throw new Error("Invalid Code")
@@ -98,10 +101,23 @@ router.post("/verifyOTP", async (req, res) => {
 })
 
 router.post("/updatepassword", async (req, res) => {
+    const query = {email: req.body.email}
+    const check = await Login.findOne(query);
     const salt = await bcrypt.genSalt(10)
     const secPass = await bcrypt.hash(req.body.password, salt)
-    await Login.updateOne({password: secPass})
-    res.json({message: "password updated"})
+    if(!check) {
+        res.json({
+            message: 'User not registered'})
+    }
+    else {
+        try{
+            await Login.updateOne(query, {password: secPass})
+            res.json({message: "password updated"})
+        }
+        catch{
+            res.json({status: "Failed"})
+        }
+    }
 })
 
 router.post("/resendOTP", async (req, res) => {
@@ -190,7 +206,7 @@ const sendOTP = async ({_id, email}, res) => {
             email: email,
             otp: genotp,
             createdAt: Date.now(),
-            expiresAt: Date.now() + 360
+            expiresAt: Date.now() + 360000
          });
          newOtp.save();
             res.json({
