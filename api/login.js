@@ -98,8 +98,10 @@ router.post("/verifyOTP", async (req, res) => {
 })
 
 router.post("/updatepassword", async (req, res) => {
-    let {password} = req.body;
-    await Login.updateOne({password})
+    const salt = await bcrypt.genSalt(10)
+    const secPass = await bcrypt.hash(req.body.password, salt)
+    await Login.updateOne({password: secPass})
+    res.json({message: "password updated"})
 })
 
 router.post("/resendOTP", async (req, res) => {
@@ -188,7 +190,7 @@ const sendOTP = async ({_id, email}, res) => {
             email: email,
             otp: genotp,
             createdAt: Date.now(),
-            expiresAt: Date.now() + 3600000
+            expiresAt: Date.now() + 360
          });
          newOtp.save();
             res.json({

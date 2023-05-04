@@ -369,3 +369,15 @@ URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //{
 //    message: "Already has one package"
 //}
+
+URL: https://backend-production-2ba4.up.railway.app/user/updatepassword
+
+//Sample Request
+//{
+//      password:"456789"
+//}
+
+//Sample Response
+//{
+//    message: "password updated"
+//}
