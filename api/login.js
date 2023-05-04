@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer')
 const Otp = require('../modelSchema/otpVerification')
 const dotenv = require('dotenv')
 dotenv.config()
+
 const gmail = process.env.GMAIL
 const SECRET_KEY = "LoginDone"
 
@@ -50,28 +51,27 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/verifyOTP", async (req, res) => {
+    let {email, otp} = req.body;
     try {
-        let {email, otp} = req.body;
         const verify = await Login.findOne({email})
         if(!email || !otp) {
-            throw Error("Empty otp details");
+            res.json({message: "Empty otp details"});
         } else {
-            const otpRecord = await Otp.find({
-                email
-            }); 
+            const otpRecord = await Otp.find({email}); 
             if(otpRecord.length <= 0) {
-                throw new Error(
-                    "Record doesn't exist"
-                )
+                await Otp.deleteMany({email});
+                res.json({message: "Record doesn't exist"})
             } else {
                 const {expiresAt} = otpRecord[0];
+                console.log(expiresAt)
                 if (expiresAt < Date.now()) {
                     await Otp.deleteMany({email});
-                    throw new Error('Code has expired. Please request again.');
+                    res.json({message: 'Code has expired. Please request again.'});
                 } else {
                     if(otp == otpRecord[0].otp) {
                         if(verify.verified)
                         {
+                            await Otp.deleteMany({email});
                             res.json({
                                 status: "Verified",
                                 message: "redirect to update password page"})
@@ -87,12 +87,14 @@ router.post("/verifyOTP", async (req, res) => {
                             tokens: token
                         })}
                     } else {
-                        throw new Error("Invalid Code")
+                        await Otp.deleteMany({email});
+                        res.json({message:"Invalid Code"})
                     }
                 }
             }
         }
     } catch (error) {
+        await Otp.deleteMany({email});
         res.json({
             status: "Failed",
             message: error.message

@@ -1,0 +1,28 @@
+URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
+//It is a GET request
+
+//Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ0M2E4ZjhmODJmMWIyMWM2Y2ZiOWExIiwiaWF0IjoxNjgyMTU1OTAzfQ.51pX7TuUtrGdmzMEeDrFYaXXZfUzpRoCX5qLNocbfgc"
+//}
+
+//Sample Response
+//{
+//    "_id": "6443b4ca0b3467816dc43116",
+//    "name": "Gaurav",
+//    "age": "21",
+//    "hobbies": [
+//        "swimming",
+//        "dancing"
+//    ],
+//    "userId": "6443a8f8f82f1b21c6cfb9a1",
+//    "createdAt": "2023-04-22T10:19:54.413Z",
+//    "updatedAt": "2023-04-22T10:19:54.413Z",
+//    "__v": 0
+//}
+
+//if user has availed any one of the package astro or psycology then for filling the other one
+//Response will be given astro
+//{
+//    message: "Already has one package"
+//}

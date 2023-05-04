@@ -18,8 +18,9 @@ router.post("/details", async (req, res) => {
         console.log(err)
         res.status(401).json({message: "Unauthorized User"})
     }
-        try{
-            const check = await Login.findById(req.userId)
+    try{
+          const check = await Login.findById(req.userId)
+          const id = check._id
           if(!check.pack_status)
             {
             const newUser = new Astro({
@@ -29,7 +30,7 @@ router.post("/details", async (req, res) => {
                 tob: req.body.tob,
                 userId: req.userId
             });
-            await Login.updateOne({pack_status: true})
+            await Login.updateOne({_id:id}, {pack_status: true})
                 newUser.save();
                 res.json(newUser)
         }

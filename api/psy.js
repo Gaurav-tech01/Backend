@@ -50,10 +50,8 @@ router.get("/fetchpsyDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-
         const check = await psy.findOne({userId: req.userId})
         res.send(check)
-        
     }catch(err){
         res.status(401).json({message: "Unauthorized User"})
     }

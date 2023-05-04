@@ -1,0 +1,87 @@
+// API to fill user details
+// URL: https://backend-production-2ba4.up.railway.app/userDetails/details
+
+//gauravsaraiwala0109 emailId is verified
+// Sample Request
+//{
+//  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjI3NjM5fQ.SFMRkXxwr3ufUfEkqioxRP1Lhysa6l0bjFN_xOzVBE8"
+//   "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "Building 45",
+//        "state": "Karnataka",
+//        "country": "India"
+//    },
+//    "education": "Graduate",
+//    "phone": "9798718420"
+//}
+
+Sample Response
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "Building 45",
+//        "state": "Karnataka",
+//        "country": "India"
+//    },
+//    "education": "Graduate",
+//    "phone": "9798718420",
+//    "image": "image-1683142168509.png",
+//    "userId": "6452b0ff515e07ab7f6ff159",
+//    "_id": "6431ca5d64d4d441ab523dad",
+//    "createdAt": "2023-04-08T20:11:09.337Z",
+//    "updatedAt": "2023-04-08T20:11:09.337Z",
+//    "__v": 0
+//}
+
+//gauravsaraiwala20 email id is not verified till now
+// Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjI3NjM5fQ.SFMRkXxwr3ufUfEkqioxRP1Lhysa6l0bjFN_xOzVBE8"
+//   "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "Building 45",
+//        "state": "Karnataka",
+//        "country": "India"
+//    },
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "education": "Graduate",
+//    "phone": "9798718420"
+//}
+ 
+// Sample Response
+// {
+//    "message": "Not Verified or User not registered"
+//}
+
+URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails 
+//It is a GET request
+
+//Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzYWU0ZGNhNzdmYmNiOGNhYjk1ODliIiwiaWF0IjoxNjgxNTgxMzI5fQ.5T7NCiLy_e3jsiwdGl_4iOCubHYoeKOmL04MoT9N3Ww"
+//}
+ 
+// Sample Response
+//{
+//    "details": {
+//        "address": {
+//            "line1": "Building 45",
+//            "state": "Karnataka",
+//            "country": "India"
+//        },
+//        "_id": "645403d1eda8e8cce1b668b4",
+//        "name": "Gaurav",
+//        "dob": "01/09/01",
+//        "education": "Graduate",
+//        "phone": "9798718420",
+//       "userId": "6453c8c34edf7e9c562654ea",
+//        "image": "image-1683227599447.png",
+//        "createdAt": "2023-05-04T19:13:21.018Z",
+//        "updatedAt": "2023-05-04T19:13:21.018Z",
+//        "__v": 0
+//    },
+//    "email": "gauravsaraiwala20@gmail.com"
+//}

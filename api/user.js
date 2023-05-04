@@ -29,8 +29,22 @@ fileFilter: (req,file,cb)=>{
 }})
 
 router.post("/details", upload.single('image'), async (req, res) => {
-    const query = {email: req.body.email}
-    const check = await Login.findOne(query);
+    try{
+        let token = req.body.authorization;
+        if(token){
+            let user = jwt.verify(token, process.env.SECRET_KEY)
+            req.userId = user.id
+        }
+        else {
+            res.status(401).json({message: "Unauthorized User"})
+        }
+    }catch(err){
+        console.log(err)
+        res.status(401).json({message: "Unauthorized User"})
+    }
+    //const query = {email: req.body.email}
+    const check = await Login.findById(req.userId);
+    const id = check._id
     if(!check || !check.verified)
     {
         await Login.deleteMany(query);
@@ -51,7 +65,7 @@ router.post("/details", upload.single('image'), async (req, res) => {
                 newUser.image = req.file.filename
             }
             await newUser.save();
-            await Login.updateOne(query, {$set: {profile: newUser._id, profile_status:true}});
+            await Login.updateOne({_id:id}, {$set: {profile: newUser._id, profile_status:true}});
             res.json(newUser)
         } catch(err) {
             console.log(err);
@@ -135,6 +149,8 @@ router.post("/resendOTP", async (req, res) => {
     }
 })
 
+
+
 router.get("/fetchUserDetails", async (req, res) => {
     try{
         let token = req.body.authorization;
@@ -145,9 +161,9 @@ router.get("/fetchUserDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-        console.log(req.userId)
-        const check = await User.findOne({userId: req.userId})
-        res.send(check)
+        const query = await Login.findOne({_id: req.userId})
+        const details = await User.findOne({userId: req.userId})
+        res.json({details, email: query.email})
         
     }catch(err){
         console.log(err)

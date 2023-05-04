@@ -5,11 +5,9 @@ const otpSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
-    phone: {
+    otp: {
         type: String,
-        default: ""
     },
-    otp: String,
     createdAt: Date,
     expiresAt: Date,
 },{timestamps: true})

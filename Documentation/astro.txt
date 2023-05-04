@@ -1,0 +1,58 @@
+//API to fill astrology details
+
+// URL: https://backend-production-2ba4.up.railway.app/astro/details
+
+// Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzOTQyYjNmNGIyN2E3ZDNiZDY4YWRmIiwiaWF0IjoxNjgxNDc1MjQ1fQ.Y2W5z6zvl-m61DVCNIBKi5agGS34kVi1lLC4W2X-7Js",
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00"
+//}
+
+Sample Response
+//{
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00",
+//    "userId": "643ae4dca77fbcb8cab9589b",
+//    "_id": "642fc0aa5c3b4b25b3a939a9"
+//}
+
+If details once filled for astro or psy
+// Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00"
+//}
+
+//Sample Response
+//{
+//    "One Pack Already Takens"
+//}
+
+URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails
+//It is a GET request
+
+//Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQzYWU0ZGNhNzdmYmNiOGNhYjk1ODliIiwiaWF0IjoxNjgxNTgxMzI5fQ.5T7NCiLy_e3jsiwdGl_4iOCubHYoeKOmL04MoT9N3Ww"
+//}
+
+//Sample Response
+//{
+//    "_id": "643ae732c05750795ab1a24d",
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Karnatak",
+//    "tob": "11:05",
+//    "userId": "643ae4dca77fbcb8cab9589b",
+//    "createdAt": "2023-04-15T18:04:34.291Z",
+//    "updatedAt": "2023-04-15T18:04:34.291Z",
+//    "__v": 0
+//}
