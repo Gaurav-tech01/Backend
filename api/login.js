@@ -149,6 +149,7 @@ router.post("/login", async (req,res) => {
             if(!passCompare){
                 res.status(400).json({error: "Wrong Credentials"})
             } else {
+                await Login.updateOne(query, {tokens: token});
                 res.json({message: "Login Successful", profile_status: true, tokens: token})
             }
         } catch(err) {

@@ -145,9 +145,7 @@ router.get("/fetchUserDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-
-        // const id = await Login.findOne(req.userId)
-        // console.log(id)
+        console.log(req.userId)
         const check = await User.findOne({userId: req.userId})
         res.send(check)
         
