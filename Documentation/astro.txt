@@ -19,7 +19,7 @@ Sample Response
 //    "_id": "642fc0aa5c3b4b25b3a939a9"
 //}
 
-If details once filled for astro or psy
+If details once filled for psycometric
 // Sample Request
 //{
 //    "email": "gauravsaraiwala20@gmail.com"
@@ -30,7 +30,21 @@ If details once filled for astro or psy
 //}
 //Sample Response
 //{
-//    "Already applied to psycometric pack"
+//    message: "Already has psycometric package"
+//}
+
+If details once filled for astro package
+// Sample Request
+//{
+//    "email": "gauravsaraiwala20@gmail.com"
+//    "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "pob": "Jharkhand",
+//    "tob": "11:00"
+//}
+//Sample Response
+//{
+//    message: "Already filled astro details"
 //}
 
 URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails

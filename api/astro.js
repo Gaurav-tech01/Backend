@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Astro = require('../modelSchema/astroDetails');
 const Login = require('../modelSchema/userLogin');
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+dotenv.config()
 
 //To Insert values inside mongodb database for Astrology Section
 router.post("/details", async (req, res) => {
@@ -30,12 +32,15 @@ router.post("/details", async (req, res) => {
                 tob: req.body.tob,
                 userId: req.userId
             });
-            await Login.updateOne({_id:id}, {pack_status: true})
+            await Login.updateOne({_id:id}, {pack_status: true, astro_status: true})
                 newUser.save();
                 res.json(newUser)
         }
+        else if(check.astro_status){
+            res.json({message: "Already filled astro details"})
+        }
         else {
-            res.json({message: "Already has one package"})
+            res.json({message: "Already has psycometric package"})
         }
         } catch(err) {
             console.log(err);
@@ -52,7 +57,7 @@ router.get("/fetchAstroDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-        const check = Login.findById(req.userId)
+        const check = await Login.findById(req.userId)
         if(check.astro_status && check.pack_status)
         {const details = await Astro.findOne({userId: req.userId})
         res.send(details)
@@ -62,7 +67,6 @@ router.get("/fetchAstroDetails", async (req, res) => {
     else {
         res.json({message: "Astro details not filled"})
     }
-        
     }catch(err){
         res.status(401).json({message: "Unauthorized User"})
     }

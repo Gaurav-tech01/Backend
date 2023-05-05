@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Login = require('../modelSchema/userLogin')
 const psy = require('../modelSchema/psyDetails');
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+dotenv.config()
 
 //To Insert values inside mongodb database for Astrology Section
 router.post("/details", async (req, res) => {
@@ -32,9 +34,12 @@ router.post("/details", async (req, res) => {
                 newUser.save();
                 res.json(newUser)
         }
-        else {
-            res.json({message: "Already applied to astro package"})
-        }
+    else if(check.psy_status){
+        res.json({message: "Already filled Psycometric details"})
+    }
+    else {
+        res.json({message: "Already has astro package"})
+    }
         } catch(err) {
             console.log(err);
         }
@@ -50,17 +55,18 @@ router.get("/fetchpsyDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-
-        const check = Login.findById(req.userId)
+        const check = await Login.findById(req.userId)
         if(check.psy_status && check.pack_status)
-        {const details = await psy.findOne({userId: req.userId})
-        res.send(details)
-    }else if(!check.psy_status && check.pack_status){
-        res.json({message: "Astro pack already taken"})
-    }
-    else {
-        res.json({message: "Psycometric details not filled"})
-    }
+        {
+            const details = await psy.findOne({userId: req.userId})
+            res.send(details)
+        }
+        else if(!check.psy_status && check.pack_status){
+            res.json({message: "Astro pack already taken"})
+        }   
+        else {
+            res.json({message: "Psycometric details not filled"})
+        }
     }catch(err){
         res.status(401).json({message: "Unauthorized User"})
     }

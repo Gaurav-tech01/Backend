@@ -20,11 +20,18 @@ Sample Response
 //    "_id": "6443b4ca0b3467816dc43116"
 //}
 
-//if user has availed any one of the package astro or psycology then for filling the other one
+//if user has availed astro package then for filling the other one
 //Response will be given astro
 //{
-//    message: "Already applied to astro package"
+//    message: "Already has astro package"
 //}
+
+//if user has already filled psycometric details
+//Response will be given astro
+//{
+//    message: "Already filled Psycometric details"
+//}
+
 
 URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //It is a GET request
