@@ -1,0 +1,93 @@
+//API to fill Psycometric Questions
+
+// URL: https://backend-production-2ba4.up.railway.app/chooseCareer/question
+
+// Sample Request
+//{
+//        "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjgyNjUwfQ.NjIbhbk-vaVzwZ7OzRCtvwZqSxBO4-KFElkkNAyO0uI",
+//      "favorite_subjects_school": "Mathematics",
+//    "strengths_in_school": "Problem Solving",
+//    "subjects_find_most_challenging": "Physics",
+//    "hobbies_and_interests": "Sports",
+//        "career_path_considering": "Engineering",
+//        "skills_want_to_develop": "Technical Skills",
+//        "working_independently_or_team": "Both",
+//        "working_independently_or_team": "Both",
+//        "working_independently_or_team": "Both",
+//        "enjoy_working_with_numbers_and_data": "No",
+//        "interested_in_exploring_new_technologies":"Yes",
+//        "interested_in_learning_new_languages": "Yes",
+//        "favorite_books_movies_TV_shows": "Drama",
+//        "favorite_websites_or_apps":"Social Media",
+//        "biggest_problems_facing_the_world_today": "Poverty",
+//        "enjoy_public_speaking_or_presenting_in_front_of_group":"No",
+//        "interested_in_arts_or_performing_arts": "Yes",
+//        "enjoy_working_with_hands_or_building_things": "Yes",
+//        "enjoy_doing_in_free_time": "Hanging out with friends",
+//        "see_yourself_doing_in_5_10_years": "Starting a business",
+//        "motivates_you_to_pursue_a_particular_career_path": "Opportunity for growth",
+//        "enjoy_working_with_animals_or_nature":"Yes"
+//}
+
+//Sample Response
+{
+    "favorite_subjects_school": "Mathematics",
+    "strengths_in_school": "Problem Solving",
+    "subjects_find_most_challenging": "Physics",
+    "hobbies_and_interests": "Sports",
+    "career_path_considering": "Engineering",
+    "skills_want_to_develop": "Technical Skills",
+    "working_independently_or_team": "Both",
+    "enjoy_working_with_numbers_and_data": "No",
+    "interested_in_exploring_new_technologies": "Yes",
+    "interested_in_learning_new_languages": "Yes",
+    "favorite_books_movies_TV_shows": "Drama",
+    "favorite_websites_or_apps": "Social Media",
+    "biggest_problems_facing_the_world_today": "Poverty",
+    "enjoy_public_speaking_or_presenting_in_front_of_group": "No",
+    "interested_in_arts_or_performing_arts": "Yes",
+    "enjoy_working_with_hands_or_building_things": "Yes",
+    "enjoy_doing_in_free_time": "Hanging out with friends",
+    "see_yourself_doing_in_5_10_years": "Starting a business",
+    "motivates_you_to_pursue_a_particular_career_path": "Opportunity for growth",
+    "enjoy_working_with_animals_or_nature": "Yes",
+    "userId": "6453c8c34edf7e9c562654ea",
+    "_id": "6455307bccd767de7c52ddb0"
+}
+
+// URL: https://backend-production-2ba4.up.railway.app/chooseCareer/fetchAnswer
+It is a get Request
+
+// Sample Request
+//{
+//        "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjgyNjUwfQ.NjIbhbk-vaVzwZ7OzRCtvwZqSxBO4-KFElkkNAyO0uI"
+//}
+
+//Sample Response
+{
+    "_id": "6455307bccd767de7c52ddb0",
+    "favorite_subjects_school": "Mathematics",
+    "strengths_in_school": "Problem Solving",
+    "subjects_find_most_challenging": "Physics",
+    "hobbies_and_interests": "Sports",
+    "career_path_considering": "Engineering",
+    "skills_want_to_develop": "Technical Skills",
+    "working_independently_or_team": "Both",
+    "enjoy_working_with_numbers_and_data": "No",
+    "interested_in_exploring_new_technologies": "Yes",
+    "interested_in_learning_new_languages": "Yes",
+    "favorite_books_movies_TV_shows": "Drama",
+    "favorite_websites_or_apps": "Social Media",
+    "biggest_problems_facing_the_world_today": "Poverty",
+    "enjoy_public_speaking_or_presenting_in_front_of_group": "No",
+    "interested_in_arts_or_performing_arts": "Yes",
+    "enjoy_working_with_hands_or_building_things": "Yes",
+    "enjoy_doing_in_free_time": "Hanging out with friends",
+    "see_yourself_doing_in_5_10_years": "Starting a business",
+    "motivates_you_to_pursue_a_particular_career_path": "Opportunity for growth",
+    "enjoy_working_with_animals_or_nature": "Yes",
+    "userId": "6453c8c34edf7e9c562654ea",
+    "createdAt": "2023-05-05T16:36:11.218Z",
+    "updatedAt": "2023-05-05T16:36:11.218Z",
+    "__v": 0
+}

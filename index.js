@@ -6,6 +6,9 @@ const psy = require('./api/psy')
 const user = require('./api/user')
 const astro = require('./api/astro')
 const admin = require('./api/admin')
+const chooseStream = require('./api/Stream')
+const chooseCareer = require('./api/Career')
+const planCareer = require('./api/planCareer')
 const dotenv = require('dotenv')
 const DB_URI = process.env.DB_URI
 
@@ -40,7 +43,15 @@ app.use("/psy",psy)
 //api use for admin side
 app.use("/admin", admin)
 
-console.log(process.env.PORT)
+//api use for filling chooseStream Answer
+app.use("/chooseStream", chooseStream)
+
+//api use for filling chooseStream Answer
+app.use("/chooseCareer", chooseCareer)
+
+//api use for filling chooseStream Answer
+app.use("/planCareer", planCareer)
+
 app.listen(process.env.PORT, ()=> {
     console.log("Backend Server is running!")
 })
