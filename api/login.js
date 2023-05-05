@@ -35,7 +35,9 @@ router.post("/register", async (req, res) => {
                 password: secPass,
                 verified: false,
                 profile_status: false,
-                pack_status: false
+                pack_status: false,
+                astro_status: false,
+                psy_status: false
             });
                 newLogin.save().then((result) => {
                     sendOTP(result, res)

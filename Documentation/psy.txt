@@ -29,6 +29,7 @@ Sample Response
 URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //It is a GET request
 
+if astro details filled
 //Sample Request
 //{
 //    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ0M2E4ZjhmODJmMWIyMWM2Y2ZiOWExIiwiaWF0IjoxNjgyMTU1OTAzfQ.51pX7TuUtrGdmzMEeDrFYaXXZfUzpRoCX5qLNocbfgc"
@@ -47,4 +48,26 @@ URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //    "createdAt": "2023-04-22T10:19:54.413Z",
 //    "updatedAt": "2023-04-22T10:19:54.413Z",
 //    "__v": 0
+//}
+
+if astro details not filled and psycometric details filled
+//Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ0M2E4ZjhmODJmMWIyMWM2Y2ZiOWExIiwiaWF0IjoxNjgyMTU1OTAzfQ.51pX7TuUtrGdmzMEeDrFYaXXZfUzpRoCX5qLNocbfgc"
+//}
+
+//Sample Response
+//{
+//    "message": "Astro pack already taken"
+//}
+
+if astro details not filled and not psycometric details filled
+//Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ0M2E4ZjhmODJmMWIyMWM2Y2ZiOWExIiwiaWF0IjoxNjgyMTU1OTAzfQ.51pX7TuUtrGdmzMEeDrFYaXXZfUzpRoCX5qLNocbfgc"
+//}
+
+//Sample Response
+//{
+//    "message": "Psycometric details not filled"
 //}

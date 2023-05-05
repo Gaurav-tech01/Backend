@@ -42,7 +42,6 @@ router.post("/details", upload.single('image'), async (req, res) => {
         console.log(err)
         res.status(401).json({message: "Unauthorized User"})
     }
-    //const query = {email: req.body.email}
     const check = await Login.findById(req.userId);
     const id = check._id
     if(!check || !check.verified)
@@ -51,7 +50,7 @@ router.post("/details", upload.single('image'), async (req, res) => {
         res.json({
             message: 'Not Verified or User not registered'})
     }
-    else {
+    else if(!check.profile_status){
         try{
             const newUser = new User({
                 name: req.body.name,
@@ -70,6 +69,46 @@ router.post("/details", upload.single('image'), async (req, res) => {
         } catch(err) {
             console.log(err);
         }
+    }
+    else {
+        res.json({message: "User Details Already Filled"})
+    }
+});
+
+router.post("/updateDetails", upload.single('image'), async (req, res) => {
+    try{
+        let token = req.body.authorization;
+        if(token){
+            let user = jwt.verify(token, process.env.SECRET_KEY)
+            req.userId = user.id
+        }
+        else {
+            res.status(401).json({message: "Unauthorized User"})
+        }
+    } catch(err) {
+        console.log(err)
+        res.status(401).json({message: "Unauthorized User"})
+    }
+    const check = await Login.findById(req.userId);
+    const id = check._id
+    if(check.profile_status) {
+        try{
+            await User.updateOne({userId:id}, {$set: {name: req.body.name,
+                dob: req.body.dob,
+                address: req.body.address,
+                education: req.body.education,
+                phone: req.body.phone,
+                userId: check._id
+            }});
+            if((req.file)) {
+                await User.updateOne({userId:id}, {$set: {image: req.file.filename}})
+            }
+            res.json({message: "User Details Updated"})
+        } catch(err) {
+            console.log(err);
+        }
+    } else {
+        res.json({message: "User details not filled"})
     }
 });
 
@@ -164,7 +203,6 @@ router.get("/fetchUserDetails", async (req, res) => {
         const query = await Login.findOne({_id: req.userId})
         const details = await User.findOne({userId: req.userId})
         res.json({details, email: query.email})
-        
     }catch(err){
         console.log(err)
         res.status(401).json({message: "Unauthorized User"})

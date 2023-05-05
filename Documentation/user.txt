@@ -85,3 +85,47 @@ URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails
 //    },
 //    "email": "gauravsaraiwala20@gmail.com"
 //}
+
+URL: https://backend-production-2ba4.up.railway.app/userDetails/updateDetails
+
+if details already filled to update
+// Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjI3NjM5fQ.SFMRkXxwr3ufUfEkqioxRP1Lhysa6l0bjFN_xOzVBE8"
+//   "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "Building 45",
+//        "state": "Karnataka",
+//        "country": "India"
+//    },
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "education": "Graduate",
+//    "phone": "9798718420"
+//}
+ 
+// Sample Response
+// {
+//    "message": "User Details Updaed"
+//}
+
+if details not filled already
+// Sample Request
+//{
+//    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1M2M4YzM0ZWRmN2U5YzU2MjY1NGVhIiwiaWF0IjoxNjgzMjI3NjM5fQ.SFMRkXxwr3ufUfEkqioxRP1Lhysa6l0bjFN_xOzVBE8"
+//   "name": "Gaurav",
+//    "dob": "01/09/01",
+//    "address": {
+//        "line1": "Building 45",
+//        "state": "Karnataka",
+//        "country": "India"
+//    },
+//    "email": "gauravsaraiwala20@gmail.com",
+//    "education": "Graduate",
+//    "phone": "9798718420"
+//}
+ 
+// Sample Response
+// {
+//    "message": "User details not filled"
+//}

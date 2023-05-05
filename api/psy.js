@@ -28,7 +28,7 @@ router.post("/details", async (req, res) => {
                 hobbies: req.body.hobbies,
                 userId: req.userId
             });
-            await Login.updateOne({pack_status: true})
+            await Login.updateOne({_id: check._id}, {$set: {pack_status: true, psy_status: true}})
                 newUser.save();
                 res.json(newUser)
         }
@@ -50,8 +50,17 @@ router.get("/fetchpsyDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-        const check = await psy.findOne({userId: req.userId})
-        res.send(check)
+
+        const check = Login.findById(req.userId)
+        if(check.psy_status && check.pack_status)
+        {const details = await psy.findOne({userId: req.userId})
+        res.send(details)
+    }else if(!check.psy_status && check.pack_status){
+        res.json({message: "Astro pack already taken"})
+    }
+    else {
+        res.json({message: "Psycometric details not filled"})
+    }
     }catch(err){
         res.status(401).json({message: "Unauthorized User"})
     }

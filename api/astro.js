@@ -52,9 +52,16 @@ router.get("/fetchAstroDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-
-        const check = await Astro.findOne({userId: req.userId})
-        res.send(check)
+        const check = Login.findById(req.userId)
+        if(check.astro_status && check.pack_status)
+        {const details = await Astro.findOne({userId: req.userId})
+        res.send(details)
+    }else if(!check.astro_status && check.pack_status){
+        res.json({message: "Psycometric pack already taken"})
+    }
+    else {
+        res.json({message: "Astro details not filled"})
+    }
         
     }catch(err){
         res.status(401).json({message: "Unauthorized User"})

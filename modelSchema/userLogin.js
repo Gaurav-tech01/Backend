@@ -22,7 +22,13 @@ const loginSchema = new mongoose.Schema({
     },
     pack_status: {
         type: Boolean
-    }
+    },
+    astro_status: {
+        type: Boolean
+    },
+    psy_status: {
+        type: Boolean
+    },
 },{timestamps: true})
 
 module.exports = mongoose.model('Login', loginSchema)
