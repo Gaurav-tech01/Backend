@@ -33,7 +33,7 @@ If details once filled for astro or psy
 
 //Sample Response
 //{
-//    "One Pack Already Takens"
+//    "Already applied to psycometric pack"
 //}
 
 URL: https://backend-production-2ba4.up.railway.app/astro/fetchAstroDetails

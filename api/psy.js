@@ -33,7 +33,7 @@ router.post("/details", async (req, res) => {
                 res.json(newUser)
         }
         else {
-            res.json({message: "Already has one package"})
+            res.json({message: "Already applied to astro package"})
         }
         } catch(err) {
             console.log(err);

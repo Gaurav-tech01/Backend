@@ -348,6 +348,12 @@ Sample Response
 //    "_id": "6443b4ca0b3467816dc43116"
 //}
 
+//if user has availed any one of the package astro or psycology then for filling the other one
+//Response will be given astro
+//{
+//    message: "Already applied to astro package"
+//}
+
 URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //It is a GET request
 
@@ -371,11 +377,6 @@ URL: https://backend-production-2ba4.up.railway.app/psy/fetchpsyDetails
 //    "__v": 0
 //}
 
-//if user has availed any one of the package astro or psycology then for filling the other one
-//Response will be given astro
-//{
-//    message: "Already has one package"
-//}
 
 URL: https://backend-production-2ba4.up.railway.app/user/updatepassword
 
