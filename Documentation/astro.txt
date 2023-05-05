@@ -1,5 +1,4 @@
 //API to fill astrology details
-
 // URL: https://backend-production-2ba4.up.railway.app/astro/details
 
 // Sample Request
@@ -10,7 +9,6 @@
 //    "pob": "Jharkhand",
 //    "tob": "11:00"
 //}
-
 Sample Response
 //{
 //    "name": "Gaurav",
@@ -30,7 +28,6 @@ If details once filled for astro or psy
 //    "pob": "Jharkhand",
 //    "tob": "11:00"
 //}
-
 //Sample Response
 //{
 //    "Already applied to psycometric pack"
