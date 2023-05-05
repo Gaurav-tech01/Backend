@@ -65,7 +65,6 @@ router.post("/verifyOTP", async (req, res) => {
                 res.json({message: "Record doesn't exist"})
             } else {
                 const {expiresAt} = otpRecord[0];
-                console.log(expiresAt)
                 if (expiresAt < Date.now()) {
                     await Otp.deleteMany({email});
                     res.json({message: 'Code has expired. Please request again.'});
@@ -199,7 +198,6 @@ router.post("/forgetpassword", async (req,res) => {
 const sendOTP = async ({_id, email}, res) => {
     try {
         const genotp = `${1000+(Math.floor(Math.random()*10)*999)}`;
-        console.log(genotp)
             mail.sendMail({
                 from: gmail,
                 to: email,

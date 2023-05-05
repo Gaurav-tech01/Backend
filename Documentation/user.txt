@@ -18,22 +18,22 @@
 
 Sample Response
 //{
-//    "name": "Gaurav",
-//    "dob": "01/09/01",
-//    "address": {
-//        "line1": "Building 45",
-//        "state": "Karnataka",
-//        "country": "India"
-//    },
-//    "education": "Graduate",
-//    "phone": "9798718420",
-//    "image": "image-1683142168509.png",
-//    "userId": "6452b0ff515e07ab7f6ff159",
-//    "_id": "6431ca5d64d4d441ab523dad",
-//    "createdAt": "2023-04-08T20:11:09.337Z",
-//    "updatedAt": "2023-04-08T20:11:09.337Z",
-//    "__v": 0
-//}
+    "name": "Harsh",
+    "dob": "01/09/05",
+    "address": {
+        "line1": "Building 45",
+        "state": "Karnataka",
+        "country": "India"
+    },
+    "phone": "9798718420",
+    "email": "gauravsaraiwala20@gmail.com",
+    "userId": "64555b7bd1335ef65178c497",
+    "_id": "64555c702c2674cf275baa43",
+    "image": "image-1683315824165.png",
+    "createdAt": "2023-05-05T19:43:44.466Z",
+    "updatedAt": "2023-05-05T19:43:44.466Z",
+    "__v": 0
+}
 
 //gauravsaraiwala20 email id is not verified till now
 // Sample Request
@@ -66,25 +66,22 @@ URL: https://backend-production-2ba4.up.railway.app/userDetails/fetchUserDetails
  
 // Sample Response
 //{
-//    "details": {
-//        "address": {
-//            "line1": "Building 45",
-//            "state": "Karnataka",
-//            "country": "India"
-//        },
-//        "_id": "645403d1eda8e8cce1b668b4",
-//        "name": "Gaurav",
-//        "dob": "01/09/01",
-//        "education": "Graduate",
-//        "phone": "9798718420",
-//       "userId": "6453c8c34edf7e9c562654ea",
-//        "image": "image-1683227599447.png",
-//        "createdAt": "2023-05-04T19:13:21.018Z",
-//        "updatedAt": "2023-05-04T19:13:21.018Z",
-//        "__v": 0
-//    },
-//    "email": "gauravsaraiwala20@gmail.com"
-//}
+    "address": {
+        "line1": "Building 45",
+        "state": "Karnataka",
+        "country": "India"
+    },
+    "_id": "64555c702c2674cf275baa43",
+    "name": "Harsh",
+    "dob": "01/09/05",
+    "phone": "9798718420",
+    "email": "gauravsaraiwala20@gmail.com",
+    "userId": "64555b7bd1335ef65178c497",
+    "image": "image-1683315824165.png",
+    "createdAt": "2023-05-05T19:43:44.466Z",
+    "updatedAt": "2023-05-05T19:43:44.466Z",
+    "__v": 0
+}
 
 URL: https://backend-production-2ba4.up.railway.app/userDetails/updateDetails
 

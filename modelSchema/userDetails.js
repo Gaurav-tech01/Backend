@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
     image: {
         type: String
     },
+    email:{
+        type: String
+    },
     userId:{
         type: String
     }

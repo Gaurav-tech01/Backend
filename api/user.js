@@ -58,6 +58,7 @@ router.post("/details", upload.single('image'), async (req, res) => {
                 address: req.body.address,
                 education: req.body.education,
                 phone: req.body.phone,
+                email: check.email,
                 userId: check._id
             });
             if((req.file)){
@@ -188,8 +189,6 @@ router.post("/resendOTP", async (req, res) => {
     }
 })
 
-
-
 router.get("/fetchUserDetails", async (req, res) => {
     try{
         let token = req.body.authorization;
@@ -200,9 +199,8 @@ router.get("/fetchUserDetails", async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-        const query = await Login.findOne({_id: req.userId})
         const details = await User.findOne({userId: req.userId})
-        res.json({details, email: query.email})
+        res.json(details)
     }catch(err){
         console.log(err)
         res.status(401).json({message: "Unauthorized User"})
