@@ -197,7 +197,14 @@ router.post("/forgetpassword", async (req,res) => {
 
 const sendOTP = async ({_id, email}, res) => {
     try {
-        const genotp = `${1000+(Math.floor(Math.random()*10)*999)}`;
+            var uniqueDigits = [];
+            while (uniqueDigits.length < 4) {
+            var digit = Math.floor(Math.random() * 10);
+            if (uniqueDigits.indexOf(digit) === -1) {
+            uniqueDigits.push(digit);
+            }
+        }
+        const genotp = uniqueDigits.join("");
             mail.sendMail({
                 from: gmail,
                 to: email,
