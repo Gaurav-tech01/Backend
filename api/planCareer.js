@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken")
 const Login = require('../modelSchema/userLogin');
 const planCareer = require('../modelSchema/planningCareer')
 const dotenv = require('dotenv');
-const path = require('path');
 dotenv.config();
 
 router.post("/question", async (req, res) => {
@@ -58,7 +57,7 @@ router.get('/fetchAnswer', async (req, res) => {
         else {
             res.status(401).json({message: "Unauthorized User"})
         }
-        const details = await Career.findOne({userId: req.userId})
+        const details = await planCareer.findOne({userId: req.userId})
         res.send(details)
     } catch(err){
         res.status(401).json({message: "Unauthorized User"})

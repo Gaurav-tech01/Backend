@@ -1,0 +1,90 @@
+//API to fill Psycometric Questions
+
+// URL: https://backend-production-2ba4.up.railway.app/planCareer/question
+
+//Sample Request
+{
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1NTViN2JkMTMzNWVmNjUxNzhjNDk3IiwiaWF0IjoxNjgzMzE1NTk5fQ.aNqqgwne04IvHIey46FGFQY9kTufHYB_XKkbJgT_qsw",
+    "current_job_or_field_of_work": "Corporate",
+    "long_been_working_your_current_field": "1-3 years",
+    "top_professional_strengths": "Leadership",
+    "professional_development_need_to_improve":"Technical Skills",
+    "long_term_career_goals": "Starting your own business",
+    "short_term_career_goals":"Acquiring a new skill or certification",
+    "work_environment_prefer":"Remote Work",
+    "pursuing_further_education_or_professional_certifications":"Optional",
+    "important_thing_looking_for_in_career":"Work-life balance",
+    "industry_or_field_interested_in":"Technology",
+    "skills_you_have_as_a_good_candidate_for_desired_career_path": "All the required technical skills a candidate should have",
+    "skills_you_need_to_develop_to_successful_in_desired_career_path":"A good leadership skills",
+    "challenges_foresee_in_achieving_your_career_goals": "A good technical skills",
+    "think_sets_you_apart_from_other_candidates_in_your_field":"A good debugging skills",
+    "biggest_professional_achievements_so_far": "A internship",
+    "measure_success_in_career":"A good career",
+    "handle_setbacks_or_failure_in_professionl_life": "Yes i can handle",
+    "stay_up_to_date_with_industry_trends_and_development":"Yes upto date",
+    "impact_you_want_to_have_in_your_field_or_industry": "A good life with good package",
+    "steps_taking_to_achieve_your_long_term_career_goals": "A further studies to learn new skills"
+}
+
+//Sample Response
+{
+    "current_job_or_field_of_work": "Corporate",
+    "long_been_working_your_current_field": "1-3 years",
+    "top_professional_strengths": "Leadership",
+    "professional_development_need_to_improve": "Technical Skills",
+    "long_term_career_goals": "Starting your own business",
+    "short_term_career_goals": "Acquiring a new skill or certification",
+    "work_environment_prefer": "Remote Work",
+    "pursuing_further_education_or_professional_certifications": "Optional",
+    "important_thing_looking_for_in_career": "Work-life balance",
+    "industry_or_field_interested_in": "Technology",
+    "skills_you_have_as_a_good_candidate_for_desired_career_path": "All the required technical skills a candidate should have",
+    "skills_you_need_to_develop_to_successful_in_desired_career_path": "A good leadership skills",
+    "challenges_foresee_in_achieving_your_career_goals": "A good technical skills",
+    "think_sets_you_apart_from_other_candidates_in_your_field": "A good debugging skills",
+    "biggest_professional_achievements_so_far": "A internship",
+    "measure_success_in_career": "A good career",
+    "handle_setbacks_or_failure_in_professionl_life": "Yes i can handle",
+    "stay_up_to_date_with_industry_trends_and_development": "Yes upto date",
+    "impact_you_want_to_have_in_your_field_or_industry": "A good life with good package",
+    "steps_taking_to_achieve_your_long_term_career_goals": "A further studies to learn new skills",
+    "userId": "64555b7bd1335ef65178c497",
+    "_id": "64590dd9ce77b2accd2d584f"
+}
+
+// URL: https://backend-production-2ba4.up.railway.app/planCareer/fetchAnswer
+
+//Sample Request
+{
+    "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdhdXJhdnNhcmFpd2FsYTIwQGdtYWlsLmNvbSIsImlkIjoiNjQ1NTViN2JkMTMzNWVmNjUxNzhjNDk3IiwiaWF0IjoxNjgzMzE1NTk5fQ.aNqqgwne04IvHIey46FGFQY9kTufHYB_XKkbJgT_qsw"
+}
+
+//Sample Response
+{
+    "_id": "64590dd9ce77b2accd2d584f",
+    "current_job_or_field_of_work": "Corporate",
+    "long_been_working_your_current_field": "1-3 years",
+    "top_professional_strengths": "Leadership",
+    "professional_development_need_to_improve": "Technical Skills",
+    "long_term_career_goals": "Starting your own business",
+    "short_term_career_goals": "Acquiring a new skill or certification",
+    "work_environment_prefer": "Remote Work",
+    "pursuing_further_education_or_professional_certifications": "Optional",
+    "important_thing_looking_for_in_career": "Work-life balance",
+    "industry_or_field_interested_in": "Technology",
+    "skills_you_have_as_a_good_candidate_for_desired_career_path": "All the required technical skills a candidate should have",
+    "skills_you_need_to_develop_to_successful_in_desired_career_path": "A good leadership skills",
+    "challenges_foresee_in_achieving_your_career_goals": "A good technical skills",
+    "think_sets_you_apart_from_other_candidates_in_your_field": "A good debugging skills",
+    "biggest_professional_achievements_so_far": "A internship",
+    "measure_success_in_career": "A good career",
+    "handle_setbacks_or_failure_in_professionl_life": "Yes i can handle",
+    "stay_up_to_date_with_industry_trends_and_development": "Yes upto date",
+    "impact_you_want_to_have_in_your_field_or_industry": "A good life with good package",
+    "steps_taking_to_achieve_your_long_term_career_goals": "A further studies to learn new skills",
+    "userId": "64555b7bd1335ef65178c497",
+    "createdAt": "2023-05-08T14:57:29.454Z",
+    "updatedAt": "2023-05-08T14:57:29.454Z",
+    "__v": 0
+}
