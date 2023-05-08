@@ -17,6 +17,7 @@ dotenv.config();
 
 app.use(express.json())
 
+app.use(express.static('uploads'))
 //MongoDb Connection Setup With Atlas
 async function connectDB() {
     try {

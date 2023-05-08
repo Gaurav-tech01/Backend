@@ -1,4 +1,6 @@
-const router = require("express").Router();
+const express = require("express")
+const app = express()
+const router = express.Router();
 const jwt = require("jsonwebtoken")
 const Login = require('../modelSchema/userLogin');
 const User = require('../modelSchema/userDetails');
@@ -62,7 +64,7 @@ router.post("/details", upload.single('image'), async (req, res) => {
                 userId: check._id
             });
             if((req.file)){
-                newUser.image = req.file.filename
+                newUser.image = `${process.env.API_URL}/${req.file.filename}`
             }
             await newUser.save();
             await Login.updateOne({_id:id}, {$set: {profile: newUser._id, profile_status:true}});
@@ -94,16 +96,17 @@ router.post("/updateDetails", upload.single('image'), async (req, res) => {
     const id = check._id
     if(check.profile_status) {
         try{
+            if((req.file)) {
+                profile_image = `${process.env.API_URL}/${req.file.filename}`
+            }
             await User.updateOne({userId:id}, {$set: {name: req.body.name,
                 dob: req.body.dob,
                 address: req.body.address,
                 education: req.body.education,
                 phone: req.body.phone,
+                image:profile_image,
                 userId: check._id
             }});
-            if((req.file)) {
-                await User.updateOne({userId:id}, {$set: {image: req.file.filename}})
-            }
             res.json({message: "User Details Updated"})
         } catch(err) {
             console.log(err);
