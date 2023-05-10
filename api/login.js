@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Login = require('../modelSchema/userLogin');
+const Show = require('../modelSchema/showStatus')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
@@ -39,9 +40,9 @@ router.post("/register", async (req, res) => {
                 astro_status: false,
                 psy_status: false
             });
-                newLogin.save().then((result) => {
-                    sendOTP(result, res)
-                });
+            newLogin.save().then((result) => {
+                sendOTP(result, res)
+            });
         } catch(err) {
             console.log(err);
         }
@@ -195,6 +196,12 @@ router.post("/forgetpassword", async (req,res) => {
     }
 })
 
+router.post("/show", async (req,res) => {
+    const newShow = new Show();
+    await newShow.save();
+    res.json(newShow)
+})
+
 const sendOTP = async ({_id, email}, res) => {
     try {
             var uniqueDigits = [];
@@ -230,5 +237,6 @@ const sendOTP = async ({_id, email}, res) => {
         })
      }
     }
+
 
 module.exports = router;
