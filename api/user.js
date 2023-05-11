@@ -13,6 +13,7 @@ const SECRET_KEY = "LoginDone"
 dotenv.config();
 
 const multer = require('multer');
+const { profile } = require("console");
 const storage = multer.diskStorage({
     destination: './uploads',
     filename: function (req, file, cb) {
@@ -99,6 +100,10 @@ router.post("/updateDetails", upload.single('image'), async (req, res) => {
         try{
             if((req.file)) {
                 profile_image = `${process.env.API_URL}/${req.file.filename}`
+            }
+            else {
+                const pic = User.findOne({userId:id})
+                profile_image = pic.image
             }
             await User.updateOne({userId:id}, {$set: {name: req.body.name,
                 dob: req.body.dob,
