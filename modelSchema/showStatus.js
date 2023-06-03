@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 const showSchema = new mongoose.Schema({
     astro: {
         type: Boolean,
-        default: false
+        default: true
     },
     Psychometric: {
         type: Boolean,
-        default: false
+        default: true
     },
     Career: {
         type: Boolean,
-        default: false
+        default: true
     },
     Course: {
         type: Boolean,
